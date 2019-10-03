@@ -14,6 +14,7 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
 //处理最后回复时间
 Vue.filter('formatDate',function(str) {
   var date = new Date(str)

@@ -1,6 +1,13 @@
 <!-- 组件说明 -->
 <template>
   <div>
+    <div class="topBar">
+      <span>全部</span>
+      <span>精华</span>
+      <span>分享</span>
+      <span>问答</span>
+      <span>招聘</span>
+    </div>
     <!-- 在数据未返回时，显示这个正在加载的动图 -->
     <div class="loading" v-if="isLoading">
       <img src="../assets/loading2.gif" alt="">
@@ -8,17 +15,8 @@
   <!-- 代表我们的主题帖子列表 -->
     <div class="posts">
       <ul>
-        <li>
-          <div class="topBar">
-            <span>全部</span>
-            <span>精华</span>
-            <span>分享</span>
-            <span>问答</span>
-            <span>招聘</span>
-          </div>
-        </li>
         <li v-for="post in posts" >
-          <a>
+           <a>
             <!-- 头像 -->
             <img :src="post.author.avatar_url">
           </a>
@@ -36,9 +34,14 @@
             </span>
           </span>
           <!-- 标题  -->
-          <span>
-            {{post.title}}
-          </span>
+          <router-link :to="{name:'post_content',params:{
+            id:post.id,
+            name:post.author.loginname
+          }}">
+            <span>
+                {{post.title}}
+            </span>
+          </router-link>
           <!-- 最后回复时间 -->
           <span class="last_reply">  
             {{post.last_reply_at|formatDate}}
@@ -67,8 +70,10 @@
           page:1,
           limit:20
         }).then(res=>{
+          console.log(res)
             this.isLoading=false//加载成功去除动画
             this.posts=res.data.data
+
           })
           // .catch(err=>{
           //   //处理返回失败后的问题
@@ -85,6 +90,10 @@
 
 <style scoped>
 /*@import url()*/
+
+.loading{
+  text-align: center;
+}
 li>a>img{
   width: 30px;
   height: 30px;
