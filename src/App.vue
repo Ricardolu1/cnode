@@ -2,8 +2,8 @@
   <div id="app">
     <Header></Header>
     <div class="main">
-      <router-view name="slide"></router-view>
-      <router-view name="main"></router-view>
+      <router-view name="slide" class="slide"></router-view>
+      <router-view name="main" class="center"></router-view>
     </div>
   </div>
 </template>
@@ -46,5 +46,21 @@ export default {
 }
 .main{
   margin:0 auto;
+  position: relative;
 }
+.center{
+  border: 1px solid red;
+  width: 1065px;
+  position:absolute;
+  top:15px;
+  left:77px;
+}
+.slide{
+  position:absolute;
+  width: 290px;
+  border: 1px solid red;
+  top:15px;
+  right:75px;
+}
+
 </style>

@@ -95,9 +95,7 @@
 
 <style scoped>
 /*@import url()*/
-  .authorInfo{
-    float:right;
-  }
+  
   #slideBarImg{
     width: 30px;
     height: 30px;
