@@ -74,6 +74,11 @@
     beforeMount(){
       this.isLoading=true
       this.getArticleDate()
+    },
+    watch:{
+      '$route'(to,from){
+        this.getArticleDate()
+      }
     }
   }
 </script>

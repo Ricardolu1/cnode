@@ -16,9 +16,33 @@
       </div>
       <div class="recentReplies">
         <div class="topBar">作者最近主题</div>
+        <ul>
+          <li v-for="list in topicLimitBy5">
+            <router-link :to="{name:'post_content',
+              params:{
+                name:list.author.loginname,
+                id:list.id
+              }
+            }">
+              {{list.title}}
+            </router-link>
+          </li>
+        </ul>
       </div>
       <div class="recentTopics">
         <div class="topBar">作者最近回复</div>
+        <ul>
+          <li v-for="list in replylimitBy5">
+            <router-link :to="{name:'post_content',
+              params:{
+                name:list.author.loginname,
+                id:list.id
+              }
+            }">
+              {{list.title}}
+            </router-link>
+          </li>
+        </ul>
       </div>
     </div>
 </template>
@@ -49,6 +73,19 @@
           })
       }
     },
+    computed:{
+      topicLimitBy5(){
+        if (this.userInfo.recent_topics) {
+          return this.userInfo.recent_topics.slice(0,5)//返回的还是一个数组
+        }
+      },
+      replylimitBy5(){
+        if (this.userInfo.recent_replies) {
+          return this.userInfo.recent_replies.slice(0,5)
+        }
+      }
+    },
+      
     beforeMount(){
       this.getData()
       console.log(this)
