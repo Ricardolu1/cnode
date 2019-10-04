@@ -35,8 +35,14 @@ export default {
 </script>
 
 <style>
-#app {
+*{
+  margin:0;
+  padding:0;
+}
 
+
+#app {
+  
 }
 .main{
   margin:0 auto;

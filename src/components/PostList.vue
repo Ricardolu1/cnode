@@ -37,9 +37,7 @@
             {put_good:(post.good===true),
             put_top:(post.top===true),
             topiclist_tab:(post.good!==true)&&(post.top!==true)}]">
-              <span>
-                {{post | tabFormat}}
-              </span>
+              <span>{{post | tabFormat}}</span>
             </span>
             <!-- 标题  -->
             <router-link :to="{name:'post_content',params:{
@@ -146,6 +144,7 @@ ul{
   margin:0 auto;
   margin-top:15px;
   width: 1064px;
+  margin-bottom:200px;
 }
 .posts li{
   padding-right: 10px;
@@ -163,6 +162,9 @@ ul{
     line-height: 2em;
     background:#FFFFFF;
     margin-top:1px;
+}
+.posts .userCell:hover {
+   background: #F5F5F5;
 }
 .posts .userCell:nth-child(1){
   margin-top:0;
@@ -202,7 +204,19 @@ ul{
    color: #778087;
    float: right;
  }
+ .posts .userCell .put_top>span{
+   background: #80bd01;
+   border-radius: 3px;
+   color: #fff;
+   font-size: 12px;
+   margin-left:3px;
+   vertical-align:middle;
+   padding:2px 4px;
+ }
  .posts ul .pagination{
    background: #FFFFFF;
+   padding-top:11px;
+   padding-bottom: 5px;
  }
+
 </style>

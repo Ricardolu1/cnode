@@ -1,8 +1,8 @@
 <!-- 组件说明 -->
 <template>
     <div class="pagination">
-      <button @click="changeBtn">首页</button><!--这里不传参数默认传的是js原生事件对象MouseEvent -->
-      <button @click="changeBtn">上一页</button>
+      <button @click="changeBtn" class="cn">首页</button><!--这里不传参数默认传的是js原生事件对象MouseEvent -->
+      <button @click="changeBtn"  class="cn">上一页</button>
       <button v-if="judge">.....</button>
       <button v-for="btn in pagebtns" 
       @click="changeBtn(btn)"
@@ -10,7 +10,7 @@
         {{btn}}
       </button>
       <button v-if="judge">.....</button>
-      <button  @click="changeBtn">下一页</button>
+      <button  @click="changeBtn" class="cn">下一页</button>
     </div>
 </template>
 
@@ -82,12 +82,20 @@ import $ from 'jquery'
 <style scoped>
 /*@import url()*/
   .currentPage{
-    background: black;
-    color:white
+    color: #80bd01;
   }
   button{
     height: 30px;
     width: 50px;
+    color: #778087;
+    background-color: #f5f5f5;
+    outline: none;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    vertical-align: middle
   }
- 
+  .pagination{
+    margin-left:10px;
+    font-size: 0px;
+  }
 </style>

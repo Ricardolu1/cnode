@@ -5,12 +5,14 @@
       <img src="../assets/cnodejs_light.svg"alt="">
     </router-link>
     <ul>
-      <li><a href="#">首页</a></li>
-      <li><a href="#">新手入门</a></li>
-      <li><a href="#">api</a></li>
-      <li><a href="#">关于</a></li>
-      <li><a href="#">注册</a></li>
-      <li><a href="#">登录</a></li>
+      <li>
+        <router-link :to="{name:'root'}"><span>首页</span></router-link>
+      </li>
+      <li><span>新手入门</span></li>
+      <li><span>api</span></li>
+      <li><span>关于</span></li>
+      <li><span>注册</span></li>
+      <li><span>登录</span></li>
     </ul>
   </div>
 </template>
@@ -52,7 +54,7 @@
     display: inline-block;
     padding: 10px 15px;
   }
-  a{
+  span{
     text-decoration: none;
     color:#ccc;
     font-size: 14px;
