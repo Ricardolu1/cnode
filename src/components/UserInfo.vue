@@ -5,18 +5,21 @@
       <img src="../assets/loading2.gif" />
     </div>
     <div class="userInformation" v-else>
-      <section>
-        <img :src="userInfo.avatar_url" id="avatarImg">
-        <span> {{userInfo.loginname}} </span>
-        <p>
-          {{userInfo.score}}积分
-        </p>
-        <p>
-          注册时间{{userInfo.create_at|formatDate}}
-        </p>
+      <section class="homePage">
+          <p class="topBar">主页</p>
+          <div class="homePageWrap">
+            <img :src="userInfo.avatar_url" id="avatarImg">
+            <span class="dark"> {{userInfo.loginname}} </span>
+            <p class="big">
+              {{userInfo.score}}积分
+            </p>
+            <p class="fade">
+              注册时间{{userInfo.create_at|formatDate}}
+            </p>
+          </div>
       </section>
-      <div class="replies">
-        <p>回复的主题</p>
+      <div class="creatTopics">
+        <p class="topBar">最近创建的话题</p>
         <ul>
           <li v-for="item in items"> 
             <router-link :to="{name:'post_content',
@@ -27,10 +30,11 @@
             </router-link>
           </li>
         </ul>
-        <div class="creatTopics">
-          <p>创建的主题</p>
-          <ul>
-            <li v-for="item in items"> 
+      </div>
+      <div class="replies">
+        <p class="topBar">最近参与的话题</p>
+        <ul>
+          <li v-for="item in items"> 
             <router-link :to="{name:'post_content',
               params:{
                 id:item.id
@@ -38,8 +42,7 @@
                 {{item.title}}
             </router-link>
           </li>
-          </ul>
-        </div>
+        </ul>
       </div>
     </div>
   </div>
@@ -86,5 +89,63 @@ export default {
 #avatarImg{
   width: 30px;
   height: 30px;
+  border-radius: 3px 3px 0 0;
+}
+.topBar{
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-radius: 3px 3px 0 0;
+}
+.UserInfo{
+  background: #e1e1e1;
+  margin-bottom: 200px;
+}
+.homePage{
+  margin-bottom: 13px;
+  background: #fff;
+  border-radius: 3px 3px 0 0;
+}
+.homePage .homePageWrap .big{
+  font-size: 12px;
+  padding: 8px 6px;
+}
+.homePage>.homePageWrap{
+  padding:10px;
+}
+.homePage>.homePageWrap .dark{
+  color: #778087;
+  line-height: 2em;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 5px
+}
+.homePage>.homePageWrap .fade{
+      margin: 6px  6px;
+      color: #ababab;
+      font-size: 12px;
+}
+.creatTopics{
+  margin-bottom: 13px;
+  background: #fff;
+  border-radius: 3px 3px 0 0;
+}
+.creatTopics ul{
+  padding:10px;
+}
+.creatTopics ul li{
+  line-height: 30px;
+  margin-left:15px;
+}
+.replies{
+  background: #fff;
+  border-radius: 3px 3px 0 0;
+}
+.replies ul{
+  padding:10px;
+}
+.replies ul li{
+  line-height: 30px;
+   margin-left:15px;
 }
 </style>

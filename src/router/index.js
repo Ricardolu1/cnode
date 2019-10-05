@@ -33,6 +33,9 @@ export default new Router({
       components:{
         main:UserInfo
       }
-    },
-  ]
+    }
+  ],
+  scrollBehavior(to,from,savedPostiton){
+    return {x:0,y:0}
+  }
 })

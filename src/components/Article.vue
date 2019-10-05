@@ -31,10 +31,20 @@
           }">
             <img :src="reply.author.avatar_url" id="replyAvatar">
           </router-link>
-          <span> {{reply.author.loginname}} </span>
-          <span> {{index+1}}楼 </span>
-          <span>· {{reply.create_at|formatDate}} </span>
-          <p v-html="reply.content"></p>
+          <span class="userInfo">
+            <router-link :to="{name:'user_info',
+              params:{
+                name:reply.author.loginname
+              }
+            }">
+              <span class="authorName"> {{reply.author.loginname}} </span>
+            </router-link>
+            <span class="times"> {{index+1}}楼 </span>
+            <span class="times" >· {{reply.create_at|formatDate}} </span>
+          </span>
+          <div class="markdown-text">
+            <p v-html="reply.content"></p>
+          </div>
         </div>
       </div>
     </div>
@@ -98,6 +108,9 @@ a{
 ul{
   list-style-type: none;
 }
+.main{
+  margin-bottom: 200px;
+}
 .loading{
   text-align: center;
   
@@ -114,6 +127,7 @@ ul{
   background: #fff;
   color: #333;
   padding:10px;
+  padding-bottom:30px;
 }
 .topicTitle>span{
   font-size: 22px;
@@ -155,8 +169,28 @@ ul{
 }
 .replyContent .reply_item{
   background: #fff;
-
+  padding:10px;
+  border-top:1px solid #f0f0f0;
+  padding-bottom: 30px;
 }
+.replyContent .reply_item a .authorName{
+  color: #666;
+  font-size: 12px;
+  font-weight: 700;
+}
+.replyContent .reply_item .times{
+  color: #08c;
+  font-size: 11px
+}
+.replyContent .reply_item .userInfo{
+  display: inline-block;
+  vertical-align: top;
+}
+.replyContent .reply_item .markdown-text{
+  margin-left:22px;
+  line-height: 30px;
+}
+
 .markdown-text img {
     width: 92% !important;
   }

@@ -29,9 +29,11 @@
             </router-link>
             <!-- 回复/浏览 -->
 
+            <span id="replyInfoLeft">
               <span class="count_of_replies"> {{post.reply_count}} </span>
               <span class="count_seperator">/</span>
               <span class="count_of_visits">{{post.visit_count}}</span>
+            </span>
             <!-- 帖子的分类 -->
             <span :class="[
             {put_good:(post.good===true),
@@ -219,4 +221,20 @@ ul{
    padding-bottom: 5px;
  }
 
+.put_good,
+.topiclist_tab{
+  border-radius: 3px;
+  font-size: 12px;
+  margin-left: 3px;
+  vertical-align: middle;
+  padding: 2px 4px;
+  background-color: #e5e5e5;
+  color: #999;
+}
+
+#replyInfoLeft{
+  display: inline-block;
+  width: 70px;
+  text-align: center
+}
 </style>

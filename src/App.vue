@@ -49,7 +49,6 @@ export default {
   position: relative;
 }
 .center{
-  border: 1px solid red;
   width: 1065px;
   position:absolute;
   top:15px;
@@ -58,7 +57,6 @@ export default {
 .slide{
   position:absolute;
   width: 290px;
-  border: 1px solid red;
   top:15px;
   right:75px;
 }

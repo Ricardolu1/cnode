@@ -42,7 +42,7 @@
   }
   img{
     max-width: 120px;
-    margin-left:50px;
+    margin-left:75px;
     margin-top:10px;
   }
   ul{

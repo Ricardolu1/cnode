@@ -3,21 +3,21 @@
     <div class="authorInfo">
       <div class="authorSummary">
         <div class="topBar">作者</div>
-          <router-link :to="{name:'user_info',
-            params:{
-              name:userInfo.loginname
-            }
-          }">
-            <img id="slideBarImg" :src="userInfo.avatar_url">
-            <span> {{userInfo.loginname}} </span>
-          </router-link>
-       
-          
+          <div class="authorContent">
+            <router-link :to="{name:'user_info',
+              params:{
+                name:userInfo.loginname
+              }
+            }">
+              <img id="slideBarImg" :src="userInfo.avatar_url">
+              <span class="name"> {{userInfo.loginname}} </span>
+            </router-link>
+          </div>
       </div>
       <div class="recentReplies">
-        <div class="topBar">作者最近主题</div>
+        <div class="topBar t2">作者最近主题</div>
         <ul>
-          <li v-for="list in topicLimitBy5">
+          <li v-for="list in topicLimitBy5" class="recentRepliesItems">
             <router-link :to="{name:'post_content',
               params:{
                 name:list.author.loginname,
@@ -30,9 +30,9 @@
         </ul>
       </div>
       <div class="recentTopics">
-        <div class="topBar">作者最近回复</div>
+        <div class="topBar t3">作者最近回复</div>
         <ul>
-          <li v-for="list in replylimitBy5">
+          <li v-for="list in replylimitBy5" class="recentTopicsItem">
             <router-link :to="{name:'post_content',
               params:{
                 name:list.author.loginname,
@@ -96,8 +96,68 @@
 <style scoped>
 /*@import url()*/
   
-  #slideBarImg{
-    width: 30px;
-    height: 30px;
-  }
+#slideBarImg{
+     width: 48px;
+    height: 48px;
+     border-radius: 3px 3px 0 0;
+}
+.topBar{
+  color: #51585c;
+  border-radius: 3px 3px 0 0;
+  padding: 10px;
+  background-color: #f6f6f6;
+  font-size: 13px;
+}
+.authorInfo{
+  background: #E1E1E1;
+  font-size: 14px;
+}
+.authorInfo a{
+  color: #778087
+}
+.authorInfo ul{
+  padding:10px;
+}
+.authorSummary{
+  background: #fff;
+  margin-bottom:13px;
+  border-radius: 3px 3px 0 0;
+}
+.authorSummary a span{
+  vertical-align: top;
+  padding:10px;
+  padding-top:17px;
+  display: inline-block;
+}
+.recentReplies{
+  background: #fff;
+  margin-bottom:13px;
+  border-radius: 3px 3px 0 0;
+}
+
+.recentRepliesItems a{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.recentTopics{
+  background: #fff;
+  border-radius: 3px 3px 0 0;
+}
+.recentTopicsItem a{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.authorContent{
+  padding: 10px;
+}
 </style>

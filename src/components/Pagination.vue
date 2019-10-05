@@ -91,8 +91,9 @@ import $ from 'jquery'
     background-color: #f5f5f5;
     outline: none;
     border: 1px solid #ddd;
-    font-size: 14px;
-    vertical-align: middle
+    font-size: 12px;
+    vertical-align: middle;
+    background: #fff;
   }
   .pagination{
     margin-left:10px;
